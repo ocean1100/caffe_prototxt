@@ -1,0 +1,8 @@
+*.[oa]
+*~
+build/
+*.caffemodel
+*.solverstate
+trash/
+data/
+.*.sw*
