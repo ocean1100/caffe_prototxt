@@ -1,0 +1,32 @@
+#训练测试的网络描述文件
+net: "mymodels/alexnet/train_val.prototxt"
+#测试需要的迭代次数，
+# test_iter*batchsize(测试集的) >= 测试集大小
+test_iter: 1000
+# The number of iterations between two testing phases.
+#训练的时候，每迭代test_interval次进行一次测试
+test_interval: 1000
+#基础学习速率
+base_lr: 0.01
+# where base_lr, max_iter, gamma, step, stepvalue and power are defined
+#  in the solver parameter protocol buffer,
+#   and iter is the current iteration.
+#学习策略，步进衰减
+lr_policy: "step"
+gamma: 0.1
+#每隔stepsize次降低学习速率，学习速率*gamma
+stepsize: 100000
+#每display次打印一次Loss
+displa: 20
+#训练的最大迭代次数
+max_iter: 450000
+#动量
+momentum: 0.9
+#权重衰减
+weight_decay: 0.0005
+#迭代snapshot次打印一次快照，即保存一次*.caffemodel,
+#*.solverstate
+snapshot: 10000
+#快照*.caffemodel, *.solverstate保存的位置
+snapshot_prefix: ""
+solver_mode: GPU
